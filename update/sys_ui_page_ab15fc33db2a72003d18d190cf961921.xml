@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description>chat</description>
+        <direct>false</direct>
+        <endpoint>x_123849_angular_a_chat.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.12/angular.min.js"></script>
+<link 
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+<script src="https://localhost:3000/socket.io/socket.io.js"></script>
+<script src="x_123849_angular_a.ng_chat_controller.jsdbx"></script>
+
+<style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      .chat-body { 
+		padding: 0px;
+		margin: -5px;
+		background-color: #ffffff;
+	  }
+	   
+      .chat-input-container #sn-chat-form { 
+		background: #b5babf; padding: 3px; 
+<!-- 			position: fixed; bottom: 0;  -->
+			width: 100%; 
+		}
+      .chat-input-container  #sn-chat-form input { 
+		background: transparent; border: 0; padding: 10px; width: 90%; margin-right: .5%; 
+	   }
+      .chat-input-container  #sn-chat-form button { 
+		width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; 
+	   }
+	
+	#sn-chat-messages { 
+		list-style-type: none; margin: 0; padding: 5px; 
+	    font-size: medium;
+		font-family: serif;
+		}
+
+	#sn-chat-messages li {     
+		padding: 5px 10px;
+		margin-bottom: 2px;
+		border-color: #cac1c1;
+		border-width: 1px;
+		border-style: solid; 
+		border-radius: 5px;
+	}
+	
+	#sn-chat-messages li.status {
+		border-color: #cac1c1;
+	}
+	
+	#sn-chat-messages li.status .message-content {
+	    color: #229c2d;
+		font-style: normal;
+	}
+
+	#sn-chat-messages .message-content {
+	    color: #4265ef;
+		display: block;
+		font-style: italic;
+	}
+	#sn-chat-messages .message-user {	
+	    color: #ab2626;
+		padding-right: 10px;
+		display: block;
+		font-weight: bold;
+	}
+	
+	#sn-chat-messages li:nth-child(odd) { 
+		background: #eee;
+		border-color: #cac1c1;
+		border-width: 1px;
+		border-style: solid;
+	}
+	
+	.salutation {
+		font-size: large;
+		padding: 4px;
+	 }
+	
+	  #sn-chat-messages .message-user:after{
+		content: ': '
+	  }
+	
+	
+    </style>
+	<div class='chat-body' ng-app="angularapp" ng-controller="ChatController as ctrl"
+		 style="height: 100%;overflow-y: hidden;position: fixed;width: 100%;">
+		<div class='panel panel-default' 
+			 style="height:100%;width: 100%;">
+			<div class="panel-heading" style="height: 10%; margin:2px">
+				<div class='salutation container'>
+				{{salutation}}
+				<span class='pull-right'>
+					<button ng-show="status !== 'started'" 
+							class='btn btn-sm btn-success' ng-click="startChat()">
+						{{chatButtonMessage1}}
+					</button>
+					<button ng-show="status === 'started'" 
+							class='btn btn-sm btn-warning' ng-click="stopChat()">
+						{{chatButtonMessage2}}
+					</button>
+				</span>
+			</div>
+			</div>
+			<div class="panel-body" style="padding: 15px;height: 80%;overflow-y: scroll;">
+				<ul id="sn-chat-messages"></ul>
+			</div>
+			<div class="panel-footer">
+				<div class='chat-input-container'>
+					<form id="sn-chat-form" action="">
+					  <input id="sn-chat-input" autocomplete="off" ng-disabled="status !== 'started'" />
+						<button class='btn btn-sm btn-info' 
+								ng-disabled="status !== 'started'">Send</button>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>		
+</j:jelly>]]></html>
+        <name>chat</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-05-12 08:09:14</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>ab15fc33db2a72003d18d190cf961921</sys_id>
+        <sys_mod_count>48</sys_mod_count>
+        <sys_name>chat</sys_name>
+        <sys_package display_value="Angular App" source="x_123849_angular_a">37f9bf1bdbee32003d18d190cf9619be</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Angular App">37f9bf1bdbee32003d18d190cf9619be</sys_scope>
+        <sys_update_name>sys_ui_page_ab15fc33db2a72003d18d190cf961921</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-05-12 18:11:06</sys_updated_on>
+    </sys_ui_page>
+</record_update>

@@ -6,23 +6,40 @@
         <global>false</global>
         <name>x_123849_angular_a.angular_app_client_lo</name>
         <script><![CDATA[var mod = angular.module('angularapp', []);
-mod.controller('AngularController', function($scope) {
+mod.controller('AngularController', ['$scope', '$http', function($scope, $http) {
 	$scope.myVar = '';
 	$scope.i = 0;
+	
+	$scope.users = [];
+	$scope.errors = [];
 	
 	$scope.clearTxt = function() {
 		$scope.myVar = '';
 		$scope.i++;
 		alert('The value was updated ' + $scope.i + ' times by ' + g_user.userName + '!');
 	};
-});]]></script>
+	
+	$scope.getUserData = function() {
+		console.log('Making Rest GET request....');
+		$http({
+		  method: 'GET',
+		  url: '/api/x_123849_angular_a/collab_users'
+		}).then(function(response) {
+			console.log(response);
+			$scope.users = response.data.result;
+		}, function(err) {
+			console.log(err);
+			$scope.errors = [err];
+		});
+	};
+}]);]]></script>
         <script_name>angular_app_client_logic</script_name>
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-05-11 09:31:07</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>7c4c339fdbee32003d18d190cf9619cd</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>x_123849_angular_a.angular_app_client_lo</sys_name>
         <sys_package display_value="Angular App" source="x_123849_angular_a">37f9bf1bdbee32003d18d190cf9619be</sys_package>
         <sys_policy/>
@@ -30,7 +47,7 @@ mod.controller('AngularController', function($scope) {
         <sys_scope display_value="Angular App">37f9bf1bdbee32003d18d190cf9619be</sys_scope>
         <sys_update_name>sys_ui_script_7c4c339fdbee32003d18d190cf9619cd</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-05-11 09:31:07</sys_updated_on>
+        <sys_updated_on>2017-05-12 06:46:15</sys_updated_on>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
 </record_update>

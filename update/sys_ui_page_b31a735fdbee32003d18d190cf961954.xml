@@ -24,7 +24,24 @@
 		</div>		
 		<br/>
 		<button ng-click="clearTxt()" type="btn btn-primary"> Clear Text </button>
+	
+		<br/>
+	
+		<button ng-click="getUserData()" type="btn btn-primary"> Get Users </button>
+	
+		<hr/>
+		
+		<ul ng-repeat="user in users track by user.id">
+			<li>{{user.name}}</li>
+		</ul>
+		
+		
 	</div>
+	
+	
+	
+	
+	
 </j:jelly>]]></html>
         <name>angular_app</name>
         <processing_script/>
@@ -33,7 +50,7 @@
         <sys_created_on>2017-05-11 09:13:30</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>b31a735fdbee32003d18d190cf961954</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>angular_app</sys_name>
         <sys_package display_value="Angular App" source="x_123849_angular_a">37f9bf1bdbee32003d18d190cf9619be</sys_package>
         <sys_policy/>
@@ -41,6 +58,6 @@
         <sys_scope display_value="Angular App">37f9bf1bdbee32003d18d190cf9619be</sys_scope>
         <sys_update_name>sys_ui_page_b31a735fdbee32003d18d190cf961954</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-05-11 09:35:09</sys_updated_on>
+        <sys_updated_on>2017-05-12 06:51:19</sys_updated_on>
     </sys_ui_page>
 </record_update>
